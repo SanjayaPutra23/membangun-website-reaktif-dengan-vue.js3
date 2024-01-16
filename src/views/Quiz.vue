@@ -32,9 +32,15 @@ const currentQuestionIndex = ref(0);
 const questionStatus = computed(() => {
 	return `${currentQuestionIndex.value + 1}/${quiz.questions.length}`;
 });
+const barPercentage = computed(
+	() => `${((currentQuestionIndex.value + 1) / quiz.questions.length) * 100}%`
+);
 </script>
 <template>
-	<QuestionHeader :questionStatus="questionStatus" />
+	<QuestionHeader
+		:questionStatus="questionStatus"
+		:barPercentage="barPercentage"
+	/>
 	<Question :question="quiz.questions[currentQuestionIndex]" />
 	<button
 		@click="currentQuestionIndex--"
