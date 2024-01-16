@@ -26,13 +26,6 @@ watch(search, () => {
 		/>
 	</header>
 	<section id="quiz-container">
-		<!-- <div v-for="quiz in quizes" :key="quiz.id" class="card">
-        <img :src="quiz.img" alt="programming" />
-        <div class="card-text">
-          <h2>{{ quiz.title }}</h2>
-          <p>{{ quiz.questions.length }} Questions</p>
-        </div>
-      </div> -->
 		<QuizCard v-for="quiz in quizes" :key="quiz.id" :quiz="quiz" />
 	</section>
 </template>
